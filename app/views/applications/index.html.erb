@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+<h1>Applications</h1>
+
+
+<div class="container mb-3 mt-3">
+  <table id="mydatatable" class="table table-bordered" style="width:100%"> 
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Color</th>
+        <th>DefaultStatus</th>
+        <th>Link</th>
+        <th>(Actions)</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @applications.each do |application| %>
+        <tr bgcolor="<%= application.Color %>">
+          
+          <td><font color="White"><%= application.Name %></font></td>
+          <td><font color="White"><%= application.Description %></font></td>
+          <td><font color="White"><%= application.Color %></font></td>
+          <td><font color="White"><%= application.DefaultStatus %></font></td>
+          <td><font color="White"><%= application.Link %></font></td>
+          <td><font color="White"><%= link_to '(Show)', application %></font></td>
+          <td><font color="White"><%= link_to '(Edit)', edit_application_path(application) %></font></td>
+          <td><font color="White"><%= link_to '(Destroy)', application, method: :delete, data: { confirm: 'Are you sure?' } %></font></td>
+          
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+
+
+<br>
+
+<%= link_to 'Click here to Add Application', new_application_path %>
